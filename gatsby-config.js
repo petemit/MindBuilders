@@ -6,6 +6,7 @@ module.exports = {
     siteUrl: `https://mindbuilders.app/`,
     social: {
       twitter: `BuildersMind`,
+      instagram: 'mind_builders',
     },
   },
   plugins: [

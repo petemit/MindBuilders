@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Divider from  '@material-ui/core/Divider'
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -19,6 +20,7 @@ class BlogIndex extends React.Component {
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
         <Bio />
+        <Divider />
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
