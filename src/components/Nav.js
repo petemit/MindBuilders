@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "gatsby";
-import { Divider, Tabs, Tab, Typography } from "@material-ui/core";
+import { Divider, Tabs, Tab, Typography, Fade } from "@material-ui/core";
+import PropTypes from "prop-types";
 
 function TabContainer(props) {
     return (
@@ -9,25 +10,57 @@ function TabContainer(props) {
         </Typography>
     );
 }
+TabContainer.propTypes = {
+    children: PropTypes.node.isRequired
+};
 
 class Nav extends Component {
+    state = {
+        fadeIn: true,
+        toValue: "blog"
+    };
     render() {
         const { currentPage, tabs } = this.props;
+        if (typeof currentPage === "undefined") {
+            currentPage = "blog";
+        }
 
-        return (
-            <div>
-                <Tabs
-                    currentPage={currentPage}
-                    onChange={(e, value) => this.props.onChangeEvent(value)}
-                >
-                    {Object.keys(tabs).map(tab => (
-                        <Tab key={tab} label={tab} value={tab} />
-                    ))}
-                </Tabs>
-                <Divider />
-                {<TabContainer>{tabs[currentPage]}</TabContainer>}
-            </div>
-        );
+        if (tabs !== undefined) {
+            return (
+                <div>
+                    <Tabs
+                        value={currentPage}
+                        onChange={(e, value) => {
+                            this.state.fadeIn === true &&
+                                this.setState(
+                                    { fadeIn: false, toValue: value }
+                                );
+                        
+                        }}
+                    >
+                        {Object.keys(tabs).map(tab => {
+                            return <Tab key={tab} label={tab} value={tab} />;
+                        })}
+                    </Tabs>
+                    <Divider />
+                    <Fade
+                        in={this.state.fadeIn}
+                        onExited={() => {
+                            
+                            this.state.fadeIn === false &&
+                                this.setState({ fadeIn: true });
+                            this.props.onChangeEvent(this.state.toValue);
+                        }}
+                    >
+                        <div>
+                            <TabContainer>{tabs[currentPage]}</TabContainer>
+                        </div>
+                    </Fade>
+                </div>
+            );
+        } else {
+            return <div />;
+        }
     }
 }
 

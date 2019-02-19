@@ -70,16 +70,6 @@ function SEO({ description, lang, meta, keywords, title }) {
                             href="https://fonts.googleapis.com/icon?family=Material+Icons"
                         />
 
-                        <style type="text/css">{`
-a{
-text-decoration:none;
-}
-a:hover 
-{
-   text-decoration: none;
-}
-        }
-    `}</style>
                     </Helmet>
                 );
             }}

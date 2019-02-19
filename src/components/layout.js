@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 
 import { rhythm, scale } from "../utils/typography";
+import { Typography } from "@material-ui/core";
 
 class Layout extends React.Component {
     render() {
@@ -11,14 +12,8 @@ class Layout extends React.Component {
 
         if (location.pathname === rootPath) {
             header = (
-                <h1
-                    style={{
-                        ...scale(1.5),
-                        marginBottom: rhythm(1.5),
-                        marginTop: 0,
-                        fontFamily: `Roboto`
-                    }}
-                >
+                <Typography variant="h2" gutterBottom>
+          
                     <Link
                         style={{
                             boxShadow: `none`,
@@ -29,16 +24,13 @@ class Layout extends React.Component {
                     >
                         {title}
                     </Link>
-                </h1>
+                
+                </Typography>
             );
         } else {
             header = (
-                <h3
-                    style={{
-                        fontFamily: `Roboto, sans-serif`,
-                        marginTop: 0
-                    }}
-                >
+                <Typography variant="h2">
+                
                     <Link
                         style={{
                             boxShadow: `none`,
@@ -49,22 +41,18 @@ class Layout extends React.Component {
                     >
                         {title}
                     </Link>
-                </h3>
+                    </Typography>
             );
         }
         return (
             <div style={container}>
                 <header>{header}</header>
                 <main>{children}</main>
-                <footer
-                    style={{
-                        fontFamily: `Roboto, sans-serif`,
-                        marginTop: 0
-                    }}
-                >
-                    © {new Date().getFullYear()}, Built with
+                <footer>
+                   <Typography variant="caption"> © {new Date().getFullYear()}, Built with
                     {` `}
                     <a href="https://www.gatsbyjs.org">Gatsby</a>
+                    </Typography>
                 </footer>
             </div>
         );

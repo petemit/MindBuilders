@@ -7,6 +7,7 @@ module.exports = {
     social: {
       twitter: `BuildersMind`,
       instagram: 'mind_builders',
+      linked: 'petemit'
     },
   },
   plugins: [

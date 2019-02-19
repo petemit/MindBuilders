@@ -1,9 +1,10 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import Image from "gatsby-image";
-import { FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 import { rhythm } from "../utils/typography";
+import { Typography } from "@material-ui/core";
 
 function Bio() {
     return (
@@ -31,17 +32,11 @@ function Bio() {
                             }}
                         />
                         <div>
-                            <p
-                                style={{
-                                    fontFamily: `Roboto, sans-serif`,
-                                    marginTop: 0
-                                }}
-                            >
+                            <Typography variant="body2">
                                 Written by <strong>{author}</strong>, a software
                                 developer whose goal is to make the kind of apps
                                 that help you to BE and to DO.
-                                {` `}
-                            </p>
+                                </Typography>
                             <p>
                                 <a
                                     style={{
@@ -67,6 +62,19 @@ function Bio() {
                                 >
                                     <FaInstagram />
                                 </a>
+
+                                <a
+                                    style={{
+                                        marginLeft: 15,
+                                        boxShadow: "none",
+                                        textDecoration: "none"
+                                    }}
+                                    href={`https://linkedin.com/in/${
+                                        social.linked
+                                    }`}
+                                >
+                                    <FaLinkedin />
+                                </a>
                             </p>
                         </div>
                     </div>
@@ -91,6 +99,7 @@ const bioQuery = graphql`
                 social {
                     twitter
                     instagram
+                    linked
                 }
             }
         }
