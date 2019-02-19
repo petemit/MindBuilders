@@ -15,7 +15,6 @@ function Bio() {
                     <div
                         style={{
                             display: `flex`,
-                            marginBottom: rhythm(2.5)
                         }}
                     >
                         <Image
@@ -31,52 +30,45 @@ function Bio() {
                                 borderRadius: `50%`
                             }}
                         />
-                        <p
-                            style={{
-                                fontFamily: `Roboto, sans-serif`,
-                                marginTop: 0
-                            }}
-                        >
-                            Written by <strong>{author}</strong>, a software
-                            developer whose goal is to make the kind of apps
-                            that help you to BE and to DO.
-                            {` `}
+                        <div>
+                            <p
+                                style={{
+                                    fontFamily: `Roboto, sans-serif`,
+                                    marginTop: 0
+                                }}
+                            >
+                                Written by <strong>{author}</strong>, a software
+                                developer whose goal is to make the kind of apps
+                                that help you to BE and to DO.
+                                {` `}
+                            </p>
                             <p>
                                 <a
-                                style={{boxShadow: 'none', textDecoration: 'none'}}
+                                    style={{
+                                        boxShadow: "none",
+                                        textDecoration: "none"
+                                    }}
                                     href={`https://twitter.com/${
                                         social.twitter
                                     }`}
                                 >
-                                    <FaTwitter/>
+                                    <FaTwitter />
                                 </a>
 
                                 <a
-                                    style={{marginLeft: 15,  boxShadow: 'none', textDecoration: 'none'}}
+                                    style={{
+                                        marginLeft: 15,
+                                        boxShadow: "none",
+                                        textDecoration: "none"
+                                    }}
                                     href={`https://instagram.com/${
                                         social.instagram
                                     }`}
                                 >
                                     <FaInstagram />
                                 </a>
-                                {/* <SocialIcon
-                                    url={`https://twitter.com/${
-                                        social.twitter
-                                    }`}
-                                    style={{ height: 35, width: 35, textDecorationStyle: 'dotted'}}
-                                    bgColor="#ffffff"
-                                    fgColor="#595a5b"
-                                />
-                                <SocialIcon
-                                    url={`https://instagram.com/${
-                                        social.instagram
-                                    }`}
-                                    style={{ marginLeft: 10, height: 35, width: 35, textDecoration: 'none'}}
-                                    bgColor="#ffffff"
-                                    fgColor="#595a5b"
-                                /> */}
                             </p>
-                        </p>
+                        </div>
                     </div>
                 );
             }}
@@ -97,7 +89,7 @@ const bioQuery = graphql`
             siteMetadata {
                 author
                 social {
-                    twitter,
+                    twitter
                     instagram
                 }
             }
